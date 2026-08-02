@@ -1,0 +1,218 @@
+[
+    {
+        "model": "lessons.week",
+        "pk": 1,
+        "fields": {
+            "course": 1,
+            "week_number": 1,
+            "title": "HTML Fundamentals & Document Structure",
+            "description": "Learn the building blocks of the web: HTML5 semantic elements, document structure, and accessibility basics.",
+            "is_published": true
+        }
+    },
+    {
+        "model": "lessons.lesson",
+        "pk": 1,
+        "fields": {
+            "week": 1,
+            "title": "Introduction to HTML5",
+            "lesson_type": "reading",
+            "order": 1,
+            "content": "HTML (HyperText Markup Language) is the standard markup language for creating web pages. HTML5 introduced semantic elements that give meaning to your content.\n\n## Key Concepts:\n\n**Semantic Elements**: Tags like `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>` describe the purpose of content.\n\n**Document Structure**: Every HTML page starts with `<!DOCTYPE html>` followed by `<html>`, `<head>`, and `<body>` tags.\n\n**Accessibility**: Using semantic HTML helps screen readers understand your page structure, making the web more inclusive.\n\n## Example:\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>My First Page</title>\n</head>\n<body>\n    <header>\n        <h1>Welcome to HTML5</h1>\n    </header>\n    <main>\n        <p>This is my content.</p>\n    </main>\n</body>\n</html>\n```",
+            "duration_minutes": 15
+        }
+    },
+    {
+        "model": "lessons.lesson",
+        "pk": 2,
+        "fields": {
+            "week": 1,
+            "title": "HTML Document Structure Explained",
+            "lesson_type": "video",
+            "order": 2,
+            "video_url": "https://www.youtube.com/embed/UB1O30fR-EE",
+            "duration_minutes": 10
+        }
+    },
+    {
+        "model": "lessons.lesson",
+        "pk": 3,
+        "fields": {
+            "week": 1,
+            "title": "Common HTML Tags & Elements",
+            "lesson_type": "reading",
+            "order": 3,
+            "content": "## Text Formatting:\n- `<h1>` to `<h6>`: Headings\n- `<p>`: Paragraphs\n- `<strong>`: Bold (important text)\n- `<em>`: Italic (emphasized text)\n- `<br>`: Line break\n\n## Lists:\n- `<ul>`: Unordered list (bullets)\n- `<ol>`: Ordered list (numbers)\n- `<li>`: List item\n\n## Links & Media:\n- `<a href=\"url\">`: Hyperlink\n- `<img src=\"url\" alt=\"description\">`: Image\n- `<video>`, `<audio>`: Multimedia\n\n## Containers:\n- `<div>`: Generic container\n- `<span>`: Inline container\n- `<section>`: Thematic grouping\n- `<article>`: Self-contained content",
+            "duration_minutes": 20
+        }
+    },
+    {
+        "model": "lessons.lesson",
+        "pk": 4,
+        "fields": {
+            "week": 1,
+            "title": "HTML Document Hierarchy",
+            "lesson_type": "diagram",
+            "order": 4,
+            "image_url": "https://via.placeholder.com/800x600/4f46e5/ffffff?text=HTML+Document+Tree+Structure",
+            "content": "This diagram shows how HTML elements nest inside each other, creating a tree-like structure called the DOM (Document Object Model).",
+            "duration_minutes": 5
+        }
+    },
+    {
+        "model": "lessons.quiz",
+        "pk": 1,
+        "fields": {
+            "week": 1,
+            "title": "Week 1 Quiz: HTML Fundamentals",
+            "passing_score": 70
+        }
+    },
+    {
+        "model": "lessons.quizquestion",
+        "pk": 1,
+        "fields": {
+            "quiz": 1,
+            "question_text": "Which HTML5 element is used to define the main content of a webpage?",
+            "order": 1
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "choice_text": "<main>",
+            "is_correct": true,
+            "order": 1
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "choice_text": "<body>",
+            "is_correct": false,
+            "order": 2
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 3,
+        "fields": {
+            "question": 1,
+            "choice_text": "<content>",
+            "is_correct": false,
+            "order": 3
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 4,
+        "fields": {
+            "question": 1,
+            "choice_text": "<div>",
+            "is_correct": false,
+            "order": 4
+        }
+    },
+    {
+        "model": "lessons.quizquestion",
+        "pk": 2,
+        "fields": {
+            "quiz": 1,
+            "question_text": "What does the <!DOCTYPE html> declaration do?",
+            "order": 2
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 5,
+        "fields": {
+            "question": 2,
+            "choice_text": "Tells the browser this is an HTML5 document",
+            "is_correct": true,
+            "order": 1
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 6,
+        "fields": {
+            "question": 2,
+            "choice_text": "Creates a link to a stylesheet",
+            "is_correct": false,
+            "order": 2
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 7,
+        "fields": {
+            "question": 2,
+            "choice_text": "Defines the page title",
+            "is_correct": false,
+            "order": 3
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 8,
+        "fields": {
+            "question": 2,
+            "choice_text": "It's optional and not needed",
+            "is_correct": false,
+            "order": 4
+        }
+    },
+    {
+        "model": "lessons.quizquestion",
+        "pk": 3,
+        "fields": {
+            "quiz": 1,
+            "question_text": "Which tag creates a clickable hyperlink?",
+            "order": 3
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 9,
+        "fields": {
+            "question": 3,
+            "choice_text": "<a>",
+            "is_correct": true,
+            "order": 1
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 10,
+        "fields": {
+            "question": 3,
+            "choice_text": "<link>",
+            "is_correct": false,
+            "order": 2
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 11,
+        "fields": {
+            "question": 3,
+            "choice_text": "<href>",
+            "is_correct": false,
+            "order": 3
+        }
+    },
+    {
+        "model": "lessons.quizchoice",
+        "pk": 12,
+        "fields": {
+            "question": 3,
+            "choice_text": "<url>",
+            "is_correct": false,
+            "order": 4
+        }
+    }
+]

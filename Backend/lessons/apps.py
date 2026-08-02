@@ -1,0 +1,9 @@
+from django.apps import AppConfig
+
+
+class LessonsConfig(AppConfig):
+    name = 'lessons'
+
+    def ready(self):
+        # Import signals so they get registered
+        import lessons.signals

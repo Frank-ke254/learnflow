@@ -1,0 +1,54 @@
+[
+    {
+        "model": "courses.course",
+        "pk": 1,
+        "fields": {
+            "title":       "Front-End Web Development",
+            "description": "Master HTML5, CSS3, and Modern JavaScript. Build responsive portfolios and professional web applications.",
+            "category":    "Development",
+            "level":       "Beginner",
+            "duration":    "12 Weeks",
+            "is_active":   true,
+            "created_at":  "2025-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 2,
+        "fields": {
+            "title":       "Python & Data Science",
+            "description": "Analyze complex datasets using NumPy and Pandas. Perfect for aspiring data analysts and researchers.",
+            "category":    "Data Science",
+            "level":       "Intermediate",
+            "duration":    "10 Weeks",
+            "is_active":   true,
+            "created_at":  "2025-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 3,
+        "fields": {
+            "title":       "Graphic Design & UI/UX",
+            "description": "Learn design principles and prototyping in Figma. Create user-centered interfaces for web and mobile.",
+            "category":    "Design",
+            "level":       "Beginner",
+            "duration":    "8 Weeks",
+            "is_active":   true,
+            "created_at":  "2025-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "courses.course",
+        "pk": 4,
+        "fields": {
+            "title":       "Digital Marketing & SEO",
+            "description": "Boost brand visibility and master search engine optimization to drive organic traffic.",
+            "category":    "Marketing",
+            "level":       "Beginner",
+            "duration":    "6 Weeks",
+            "is_active":   true,
+            "created_at":  "2025-01-01T00:00:00Z"
+        }
+    }
+]

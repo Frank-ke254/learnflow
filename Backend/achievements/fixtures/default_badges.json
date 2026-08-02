@@ -1,0 +1,52 @@
+[
+    {
+        "model": "achievements.badge",
+        "pk": 1,
+        "fields": {
+            "name": "7-Day Streak",
+            "description": "Maintained a 7-day learning streak",
+            "icon": "🔥",
+            "badge_type": "streak"
+        }
+    },
+    {
+        "model": "achievements.badge",
+        "pk": 2,
+        "fields": {
+            "name": "Top Reviewer",
+            "description": "Reviewed 10+ peer projects",
+            "icon": "⭐",
+            "badge_type": "reviewer"
+        }
+    },
+    {
+        "model": "achievements.badge",
+        "pk": 3,
+        "fields": {
+            "name": "First Project",
+            "description": "Completed your first validated project",
+            "icon": "🎯",
+            "badge_type": "projects"
+        }
+    },
+    {
+        "model": "achievements.badge",
+        "pk": 4,
+        "fields": {
+            "name": "Community Champion",
+            "description": "Made 50+ contributions to the community",
+            "icon": "🏆",
+            "badge_type": "community"
+        }
+    },
+    {
+        "model": "achievements.badge",
+        "pk": 5,
+        "fields": {
+            "name": "Mentor Excellence",
+            "description": "Helped 20+ learners as a mentor",
+            "icon": "👨‍🏫",
+            "badge_type": "mentor"
+        }
+    }
+]

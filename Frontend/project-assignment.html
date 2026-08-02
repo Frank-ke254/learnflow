@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week Project Assignment | LearnFlow</title>
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="CSS/shared.css">
+    <link rel="stylesheet" href="CSS/project-assignment.css">
+    <link rel="stylesheet" href="CSS/sidebar-standardized.css">
+</head>
+<body class="main-layout">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="brand" onclick="location.href='dash.html'">
+                <img src="Images/LearnFlow.png" alt="LearnFlow" class="nav-logo">
+                <span class="brand-name">LearnFlow</span>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <svg id="themeIcon" viewBox="0 0 24 24" width="20">
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                </svg>
+            </button>
+            <div class="user-profile" onclick="toggleProfileMenu(event)">
+                <div class="avatar-circle" id="navAvatar">LF</div>
+                <div class="profile-menu" id="profileMenu">
+                    <div class="menu-header">
+                        <p id="navUserName">User</p>
+                    </div>
+                    <button class="menu-item" onclick="goToMyProfile()">My Profile</button>
+                    <button class="menu-item logout-link" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <!-- Sidebar content same as skills.html -->
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="assignment-container">
+            
+            <!-- Header -->
+            <div class="assignment-header">
+                <div class="breadcrumb">
+                    <a href="skills.html">Skills</a>
+                    <span>›</span>
+                    <span id="weekBreadcrumb">Week 1</span>
+                    <span>›</span>
+                    <span>Project Assignment</span>
+                </div>
+                
+                <div class="assignment-title">
+                    <div class="week-badge" id="weekBadge">WEEK 1</div>
+                    <h1 id="projectTitle">Loading Project...</h1>
+                </div>
+                
+                <div class="assignment-meta">
+                    <div class="meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span id="estimatedTime">2-3 hours</span>
+                    </div>
+                    <div class="meta-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                        <span>50 Points</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignment Content -->
+            <div class="assignment-content">
+                
+                <!-- Description -->
+                <section class="content-section">
+                    <h2>📋 Project Description</h2>
+                    <div id="projectDescription" class="markdown-content">
+                        <p>Loading project description...</p>
+                    </div>
+                </section>
+
+                <!-- Requirements -->
+                <section class="content-section">
+                    <h2>✅ Requirements</h2>
+                    <div id="projectRequirements" class="requirements-list">
+                        <p>Loading requirements...</p>
+                    </div>
+                </section>
+
+                <!-- Submission Guidelines -->
+                <section class="content-section">
+                    <h2>📤 Submission Guidelines</h2>
+                    <div class="guidelines-box">
+                        <ol>
+                            <li>Create a <strong>public GitHub repository</strong> for your project</li>
+                            <li>Include a <strong>README.md</strong> file with:
+                                <ul>
+                                    <li>Project title and description</li>
+                                    <li>Technologies used</li>
+                                    <li>How to run/view the project</li>
+                                    <li>Screenshots (optional but recommended)</li>
+                                </ul>
+                            </li>
+                            <li>Push all your code to the repository</li>
+                            <li>Submit your project using the button below</li>
+                            <li>Wait for mentor review and feedback</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Resources -->
+                <section class="content-section" id="resourcesSection" style="display: none;">
+                    <h2>📚 Helpful Resources</h2>
+                    <div id="projectResources" class="resources-grid">
+                        <!-- Resources will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Action Buttons -->
+                <div class="assignment-actions">
+                    <button class="btn btn-secondary" onclick="history.back()">
+                        ← Back to Skills
+                    </button>
+                    <button class="btn btn-primary" onclick="submitProject()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Submit Your Project
+                    </button>
+                </div>
+            </div>
+
+            <!-- Previous Submissions -->
+            <section class="previous-submissions" id="previousSubmissions" style="display: none;">
+                <h2>Your Previous Submissions</h2>
+                <div id="submissionsList">
+                    <!-- Previous submissions will be loaded here -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="JS/config.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/auth.js" defer></script>
+    <script src="JS/user.js" defer></script>
+    <script src="JS/theme.js"></script>
+    <script src="JS/project-assignment.js" defer></script>
+</body>
+</html>

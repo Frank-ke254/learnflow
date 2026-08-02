@@ -1,0 +1,145 @@
+/* ===========================
+   PROFILE PAGE SPECIFIC STYLES
+   =========================== */
+
+/* Layout for Profile Content */
+/* Update these specific lines in dash.css */
+.user-profile {
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    /* This padding acts as a "bridge" so there is no gap for the mouse to fall through */
+    padding: 10px 5px; 
+    margin: -10px 0;
+}
+
+.profile-menu {
+    position: absolute;
+    /* Adjust 'top' so the menu slightly overlaps the avatar area */
+    top: 100%; 
+    right: 0;
+    margin-top: 5px; 
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    width: 200px;
+    padding: 12px;
+    display: none; /* JS Toggle only */
+    box-shadow: var(--shadow);
+    z-index: 2000;
+}
+
+/* IMPORTANT: Search for and DELETE this line if it still exists! */
+/* .user-profile:hover .profile-menu { display: block; } */
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    pointer-events: none;  /* Added: makes clicks "pass through" to the parent .user-profile */
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Avatar Upload Section */
+.avatar-upload-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.avatar-preview-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+#profilePreview {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--card);
+    box-shadow: var(--shadow);
+}
+
+.edit-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--accent);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid var(--card);
+    font-weight: bold;
+}
+
+/* Form Grouping & Inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.locked-status {
+    background: var(--bg);
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 800;
+    color: var(--accent);
+    border: 1px dashed var(--border);
+    text-align: center;
+}
+
+.readonly-input {
+    background: var(--bg);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Password Form Specifics */
+#passwordForm .resume-btn {
+    background: #0f172a !important; 
+    color: #ffffff !important;      
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+:root.dark #passwordForm .resume-btn {
+    background: var(--accent) !important; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}

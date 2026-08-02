@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="LearnFlow helps you build real-world projects, validate skills through peer review, and showcase a verified portfolio.">
+  <meta property="og:title" content="LearnFlow | Build. Validate. Showcase.">
+  <meta property="og:description" content="Turn learning into action with real-world projects and a verified portfolio.">
+  <meta property="og:image" content="Images/LearnFlow.png">
+  
+  <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>LearnFlow | Build. Validate. Showcase.</title>
+</head>
+
+<body>
+  <!-- Loading Spinner -->
+  <div id="pageLoader" class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Header with Mobile Menu -->
+  <header>
+    <div class="logo-area" onclick="location.href='index.html'" style="cursor: pointer;">
+      <img src="Images/LearnFlow.png" alt="LearnFlow logo" width="60">
+      <div class="brand-text">
+        <h1>LearnFlow</h1>
+        <p class="tagline">Build. Validate. Showcase.</p>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation" id="authNav">
+      <a href="index.html">Home</a>
+      <a href="#how-it-works">How it Works</a>
+      <a href="#courses">Courses</a>
+      <a href="#faq">FAQ</a>
+      <a href="signup.html" class="button">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section with Animation -->
+    <section class="hero" data-aos="fade-up">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h2>Turn Learning into <br><span class="gradient-text">Digital Income.</span></h2>
+          <p>Master in-demand skills through project-based learning. Get your work validated by experts and build a portfolio that employers trust.</p>
+          <div class="hero-btns">
+            <a href="signup.html" class="cta-btn">
+              Start Your Journey
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#courses" class="secondary-btn">View Paths</a>
+          </div>
+
+          <!-- Stats Counter -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="500">0</span>+
+              <span class="stat-label">Active Learners</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="50">0</span>+
+              <span class="stat-label">Courses</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="1000">0</span>+
+              <span class="stat-label">Projects Completed</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
+               alt="Workspace with laptop"
+               loading="lazy">
+          <!-- Floating Elements -->
+          <div class="floating-badge badge-1">💻 Web Dev</div>
+          <div class="floating-badge badge-2">📊 Data Science</div>
+          <div class="floating-badge badge-3">🎨 UI/UX</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works" data-aos="fade-up">
+      <div class="section-title">
+        <h3>The LearnFlow Method</h3>
+        <p>A proven path from learning to earning</p>
+      </div>
+
+      <div class="steps">
+        <div class="step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-number">01</div>
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80" 
+               alt="Build projects"
+               loading="lazy">
+          <h4><strong>Build</strong></h4>
+          <p>Choose a skill and complete guided projects to practice real-world tasks.</p>
+          <a href="#courses" class="step-link">Browse Courses →</a>
+        </div>
+
+        <div class="step" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-number">02</div>
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80" 
+               alt="Get validated"
+               loading="lazy"
+               onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80'">
+          <h4><strong>Validate</strong></h4>
+          <p>Submit your work for peer and mentor reviews to gain authentic validation.</p>
+          <a href="#how-it-works" class="step-link">Learn More →</a>
+        </div>
+
+        <div class="step" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-number">03</div>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" 
+               alt="Showcase portfolio"
+               loading="lazy">
+          <h4><strong>Showcase</strong></h4>
+          <p>Display your verified projects and skills on your LearnFlow portfolio.</p>
+          <a href="signup.html" class="step-link">Get Started →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Preview Section -->
+    <section class="course-preview" id="course-preview" data-aos="fade-up">
+      <div class="section-title">
+        <h3>What's Inside Our Courses?</h3>
+        <p>Everything you need to master real-world skills</p>
+      </div>
+
+      <div class="preview-grid">
+        <div class="preview-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="preview-icon">📚</div>
+          <h4>Structured Curriculum</h4>
+          <p>Week-by-week lessons designed by industry experts</p>
+        </div>
+        <div class="preview-item" data-aos="fade-right" data-aos-delay="200">
+          <div class="preview-icon">💼</div>
+          <h4>Real Projects</h4>
+          <p>Build portfolio-worthy projects that employers want to see</p>
+        </div>
+        <div class="preview-item" data-aos="fade-right" data-aos-delay="300">
+          <div class="preview-icon">✅</div>
+          <h4>Expert Reviews</h4>
+          <p>Get feedback from experienced mentors in your field</p>
+        </div>
+        <div class="preview-item" data-aos="fade-right" data-aos-delay="400">
+          <div class="preview-icon">🏆</div>
+          <h4>Verified Certificates</h4>
+          <p>Earn credentials that prove your competence</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Available Courses Section -->
+    <section class="courses" id="courses" data-aos="fade-up">
+      <h3>Available Courses</h3>
+      <p class="courses-subtitle">Choose your path and start building today</p>
+      
+      <div class="course-grid">
+        <!-- Course Card 1 -->
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="course-badge">MOST POPULAR</div>
+          <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=400&q=80" 
+               alt="Front-End Web Development" 
+               class="course-img"
+               loading="lazy">
+          <div class="course-content">
+            <h4>Front-End Web Development</h4>
+            <p>Learn HTML, CSS, and JavaScript by building real-world web applications.</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱ 12 Weeks</span>
+              <span class="course-projects">📁 8 Projects</span>
+            </div>
+            <button class="enroll-btn" data-course="1">
+              Enroll Now
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner-small"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Course Card 2 -->
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=400&q=80" 
+               alt="Back-End Web Development" 
+               class="course-img"
+               loading="lazy">
+          <div class="course-content">
+            <h4>Back-End Web Development</h4>
+            <p>Master server-side programming, databases, and API development.</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱ 14 Weeks</span>
+              <span class="course-projects">📁 10 Projects</span>
+            </div>
+            <button class="enroll-btn" data-course="2">
+              Enroll Now
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner-small"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Course Card 3 -->
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" 
+               alt="Data Science" 
+               class="course-img"
+               loading="lazy">
+          <div class="course-content">
+            <h4>Data Science</h4>
+            <p>Analyze datasets, build models, and master machine learning fundamentals.</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱ 16 Weeks</span>
+              <span class="course-projects">📁 12 Projects</span>
+            </div>
+            <button class="enroll-btn" data-course="3">
+              Enroll Now
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner-small"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Course Card 4 -->
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="400">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=400&q=80" 
+               alt="UI/UX Design" 
+               class="course-img"
+               loading="lazy">
+          <div class="course-content">
+            <h4>UI/UX Design</h4>
+            <p>Master wireframing, prototyping, and user-centered design principles.</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱ 10 Weeks</span>
+              <span class="course-projects">📁 6 Projects</span>
+            </div>
+            <button class="enroll-btn" data-course="4">
+              Enroll Now
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner-small"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Course Card 5 -->
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="500">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=400&q=80" 
+               alt="Machine Learning" 
+               class="course-img"
+               loading="lazy">
+          <div class="course-content">
+            <h4>Machine Learning</h4>
+            <p>Build supervised and unsupervised models using Python and ML tools.</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱ 18 Weeks</span>
+              <span class="course-projects">📁 15 Projects</span>
+            </div>
+            <button class="enroll-btn" data-course="5">
+              Enroll Now
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner-small"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Course Card 6 -->
+        <div class="course-card" data-aos="zoom-in" data-aos-delay="600">
+          <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=400&q=80" 
+               alt="Android Development" 
+               class="course-img"
+               loading="lazy">
+          <div class="course-content">
+            <h4>Android Development</h4>
+            <p>Build professional Android apps with Kotlin and modern development tools.</p>
+            <div class="course-meta">
+              <span class="course-duration">⏱ 16 Weeks</span>
+              <span class="course-projects">📁 10 Projects</span>
+            </div>
+            <button class="enroll-btn" data-course="6">
+              Enroll Now
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner-small"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" data-aos="fade-up">
+      <div class="section-title">
+        <h3>Verified Success Stories</h3>
+        <p>Join thousands of learners building their digital careers</p>
+      </div>
+      
+      <div class="review-grid">
+        <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <p>"The validation system is a game-changer. Getting my projects reviewed by mentors gave me the portfolio I needed to land my first client."</p>
+          <div class="reviewer">
+            <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah Wambui" loading="lazy">
+            <div class="reviewer-info">
+              <strong>Sarah Wambui</strong>
+              <span>Freelance Developer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <p>"As an Ajira trainee, I needed a way to prove my skills. LearnFlow's verified projects were the exact proof my employer was looking for."</p>
+          <div class="reviewer">
+            <img src="https://i.pravatar.cc/150?u=john" alt="John Mutua" loading="lazy">
+            <div class="reviewer-info">
+              <strong>John Mutua</strong>
+              <span>Data Analyst</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="rating">⭐⭐⭐⭐⭐</div>
+          <p>"I went from zero coding knowledge to building real apps in 3 months. The structured path and mentor support made all the difference."</p>
+          <div class="reviewer">
+            <img src="https://i.pravatar.cc/150?u=mary" alt="Mary Njeri" loading="lazy">
+            <div class="reviewer-info">
+              <strong>Mary Njeri</strong>
+              <span>Software Engineer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (NEW!) -->
+    <section class="faq-section" id="faq" data-aos="fade-up">
+      <div class="section-title">
+        <h3>Frequently Asked Questions</h3>
+        <p>Everything you need to know about LearnFlow</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <button class="faq-question">
+            <span>How does LearnFlow differ from other online learning platforms?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>LearnFlow focuses on project-based learning with professional validation. Unlike traditional platforms, every project you build is reviewed by experienced mentors, giving you verified proof of your skills that employers trust.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <button class="faq-question">
+            <span>Do I need prior programming experience?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>No! Our courses are designed for complete beginners. We start with fundamentals and gradually build up to advanced topics. Each course includes step-by-step guidance and support from our community.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <button class="faq-question">
+            <span>How long does it take to complete a course?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Course duration varies from 10-18 weeks depending on the subject. However, you can learn at your own pace. Most students dedicate 10-15 hours per week, but you can adjust based on your schedule.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+          <button class="faq-question">
+            <span>Will I get a certificate upon completion?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Upon completing all projects and passing mentor reviews, you'll receive a verified certificate. More importantly, you'll have a portfolio of reviewed projects that demonstrate your real-world skills.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+          <button class="faq-question">
+            <span>Can I get a refund if I'm not satisfied?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>We offer a 14-day money-back guarantee. If you're not satisfied within the first two weeks, contact our support team for a full refund—no questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-up">
+      <div class="cta-content">
+        <h3>Ready to Start Your Journey?</h3>
+        <p>Join 500+ students building real skills and earning digital income</p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="cta-btn-large">Get Started Free</a>
+          <a href="#courses" class="cta-btn-outline">Browse Courses</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Enhanced Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Images/LearnFlow.png" alt="LearnFlow Logo" width="55" height="55">
+        <p>Build. Validate. Showcase. LearnFlow helps you turn skills into real-world proof.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Enter your email" id="newsletterEmail">
+          <button onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#courses">Courses</a>
+        <a href="#faq">FAQ</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Get Started</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Community Forum</a>
+        <a href="#">Report an Issue</a>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:support@learnflow.com">support@learnflow.com</a></p>
+        <p>Phone: <a href="tel:+254700000000">+254 700 000 000</a></p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> LearnFlow — Build. Validate. Showcase.</p>
+      <div class="legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  <script src="JS/config.js"></script>
+  <script src="JS/index.js"></script>
+</body>
+</html>

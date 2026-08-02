@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnFlow | Dashboard</title>
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="CSS/profile.css">
+    <link rel="stylesheet" href="CSS/dash-additional.css">
+    <link rel="stylesheet" href="CSS/empty-dash.css">
+    <link rel="stylesheet" href="CSS/sidebar-standardized.css">
+
+    <!--
+        theme.js must load first (in <head>, no defer) so the dark class
+        is applied before the page renders — prevents flash of light mode.
+    -->
+    <script src="JS/theme.js"></script>
+</head>
+<body class="main-layout">
+
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="brand" onclick="location.href='dash.html'">
+                <img src="Images/LearnFlow.png" alt="LearnFlow" class="nav-logo">
+                <span class="brand-name">LearnFlow</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <svg viewBox="0 0 24 24" width="20"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/></svg>
+            </button>
+            <div class="user-profile" onclick="toggleProfileMenu(event)">
+                <div class="avatar-circle" id="navAvatar">LF</div>
+                
+                <div class="profile-menu" id="profileMenu">
+                    <div class="menu-header">
+                        <p id="navUserName" style="margin:0; color: var(--text-main);">User</p>
+                        <small style="color: var(--text-sub); font-size: 0.75rem;">Account Settings</small>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 8px 0;">
+                    
+                    <button class="menu-item" onclick="goToMyProfile()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        My Profile
+                    </button>
+                    
+                    <button class="menu-item logout-link" onclick="handleLogout()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="margin-right:8px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--
+        aria-label distinguishes this from the top <header> nav.
+        Sidebar <li> items use data-href + role="link" + tabindex="0"
+        so they're keyboard navigable without being real <a> tags
+        (preserving your existing visual structure).
+    -->
+    <nav class="sidebar">
+        <ul class="nav-links">
+            <li class="active" onclick="location.href='dash.html'">
+                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                <span>Home</span>
+            </li>
+
+            <li onclick="location.href='courses.html'">
+                <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <span>Courses</span>
+            </li>
+
+            <li onclick="location.href='skills.html'">
+                <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                <span>Skills</span>
+            </li>
+
+            <li onclick="location.href='projects.html'">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
+                <span>Projects</span>
+            </li>
+
+            <li onclick="location.href='community.html'">
+                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                <span>Community</span>
+            </li>
+
+            <li onclick="location.href='discussions.html'">
+                <svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                <span>Discussions</span>
+            </li>
+
+            <li onclick="location.href='achievements.html'">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span>Awards</span>
+            </li>
+
+            <li onclick="goToMyProfile()">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <span>Profile</span>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content-wrapper" role="main">
+        <section class="welcome-area" aria-labelledby="welcomeHeading">
+            <h1 id="welcomeHeading">Welcome back, <span id="userNameHeader">Learner</span>!</h1>
+            <p>Ready to continue your journey?</p>
+        </section>
+
+        <section class="learning-status-card" aria-labelledby="learningStatusHeading">
+            <div class="learning-header">
+                <div>
+                    <span class="week-badge" id="currentWeekBadge" aria-label="Current week">WEEK 01</span>
+                    <h2 id="currentTopic">Loading...</h2>
+                    <p class="course-context" id="courseContext">Path: Loading...</p>
+                </div>
+                <button class="resume-btn" id="resumeBtn">Resume Lesson</button>
+            </div>
+            <div class="progress-container" aria-label="Course progress">
+                <div class="progress-text">
+                    <span>Course Progress</span>
+                    <span id="progressPercentage">0%</span>
+                </div>
+                <div class="progress-bar-bg" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Your stats">
+            <div class="stat-card">
+                <!-- SVG flame icon replaces emoji for cross-platform consistency -->
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" fill="var(--accent)">
+                        <path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5 0.67z"/>
+                    </svg>
+                </span>
+                <div class="stat-info">
+                    <p>Streak</p>
+                    <h3 id="userStreak">12 Days</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" fill="var(--accent)">
+                        <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                </span>
+                <div class="stat-info">
+                    <p>Total Points</p>
+                    <h3 id="userPoints">1,855</h3>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" fill="var(--accent)">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                </span>
+                <div class="stat-info">
+                    <p>Projects Validated</p>
+                    <h3 id="userValidated">4</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================
+     ADDITIONAL DASHBOARD WIDGETS
+     Add these sections AFTER the existing stats-grid in dash.html
+     ============================================================= -->
+
+        <!-- SECTION 1: Recent Activity Feed (Add after stats-grid) -->
+        <section class="activity-feed-section">
+            <div class="section-header">
+                <h2>Recent Activity</h2>
+                <a href="#" class="view-all-link">View All</a>
+            </div>
+            <div id="activityFeed" class="activity-timeline">
+                <!-- Activities will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- SECTION 2: Quick Actions Panel -->
+        <section class="quick-actions-panel">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <button class="action-card" onclick="location.href='courses.html'">
+                    <div class="action-icon" style="background: rgba(79, 70, 229, 0.1);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        </svg>
+                    </div>
+                    <span>Browse Courses</span>
+                </button>
+                
+                <button class="action-card" onclick="location.href='projects.html'">
+                    <div class="action-icon" style="background: rgba(16, 185, 129, 0.1);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+                            <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                        </svg>
+                    </div>
+                    <span>My Projects</span>
+                </button>
+                
+                <button class="action-card" onclick="location.href='discussions.html'">
+                    <div class="action-icon" style="background: rgba(245, 158, 11, 0.1);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <span>Ask Question</span>
+                </button>
+                
+                <button class="action-card" onclick="location.href='achievements.html'">
+                    <div class="action-icon" style="background: rgba(239, 68, 68, 0.1);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <span>View Badges</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Upcoming Deadlines -->
+        <section class="deadlines-section">
+            <h2>Upcoming Deadlines</h2>
+            <div id="upcomingDeadlines" class="deadlines-list">
+                <!-- Deadlines will be loaded here -->
+            </div>
+        </section>
+
+        <!-- SECTION 4: Latest Badges Showcase -->
+        <section class="badges-showcase">
+            <div class="section-header">
+                <h2>Latest Achievements</h2>
+                <a href="achievements.html" class="view-all-link">View All</a>
+            </div>
+            <div id="achievementsGrid" class="badges-carousel">
+                <!-- Badges will be loaded here -->
+            </div>
+        </section>
+
+        <!-- SECTION 5: Mentor Feedback Card -->
+        <section class="mentor-feedback-section" id="mentorFeedbackSection" style="display:none;">
+            <h2>Latest Mentor Feedback</h2>
+            <div id="mentorFeedback" class="feedback-card-new">
+                <!-- Feedback will be loaded here -->
+            </div>
+        </section>
+
+        <!-- SECTION 6: Study Streak Visualization -->
+        <section class="streak-calendar">
+            <h2>Your Learning Journey</h2>
+            <div class="streak-info">
+                <div class="streak-stat">
+                    <span class="streak-number" id="currentStreak">0</span>
+                    <span class="streak-label">Day Streak</span>
+                </div>
+                <div class="streak-stat">
+                    <span class="streak-number" id="longestStreak">0</span>
+                    <span class="streak-label">Longest</span>
+                </div>
+                <div class="streak-stat">
+                    <span class="streak-number" id="totalDays">0</span>
+                    <span class="streak-label">Total Days</span>
+                </div>
+            </div>
+            <div id="streakCalendar" class="calendar-grid">
+                <!-- Calendar will be generated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!--
+        Script load order matters:
+        1. config.js   — CONFIG and ROUTES constants (used by everything)
+        2. utils.js    — showToast, setText, setValue helpers
+        3. auth.js     — authFetch, handleLogout, token refresh
+        4. user.js     — nav population, role-based UI, dropdown
+        5. dashboard.js — dashboard-specific data fetch and render
+        6. profile.js  — only needed on profile.html, but included here
+                         because it updates the nav avatar
+        theme.js is already loaded in <head> (no defer needed there).
+    -->
+    <script src="JS/config.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/auth.js" defer></script>
+    <script src="JS/user.js" defer></script>
+    <script src="JS/dashboard.js" defer></script>
+    <script src="JS/add-dash.js"></script>
+    <script src="JS/profile.js" defer></script>
+
+    <!--
+        Page-level event wiring.
+        Runs after all deferred scripts have loaded.
+        Replaces all the inline onclick="" attributes that were in the original HTML.
+    -->
+    <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // ── Sidebar navigation ─────────────────────────────────
+        // Handles both click and keyboard (Enter/Space) for accessibility.
+        document.querySelectorAll('.nav-links [data-href]').forEach(item => {
+            const navigate = () => { window.location.href = item.dataset.href; };
+            item.addEventListener('click', navigate);
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    navigate();
+                }
+            });
+        });
+
+        // ── Theme toggle button ────────────────────────────────
+        const themeBtn = document.getElementById('themeToggleBtn');
+        if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+        // ── Avatar / profile menu toggle ───────────────────────
+        const avatar = document.getElementById('navAvatar');
+        if (avatar) avatar.addEventListener('click', toggleProfileMenu);
+
+        // ── Logout button ──────────────────────────────────────
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+
+    });
+    </script>
+</body>
+</html>

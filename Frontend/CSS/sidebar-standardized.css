@@ -1,0 +1,231 @@
+/* ============================================
+   SIDEBAR - STANDARDIZED VERSION
+   Consistent spacing, alignment, and styling
+   ============================================ */
+
+.sidebar {
+    width: 100px;
+    background: var(--nav-bg, #1a1d29);
+    border-right: 1px solid var(--border-color, #2d3142);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 60px; /* Height of top nav */
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* Navigation list */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Consistent gap between ALL items */
+}
+
+/* Individual navigation items */
+.nav-links li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation links/buttons - UNIFORM SIZING */
+.nav-links li a,
+.nav-links li [role="link"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Space between icon and text */
+    
+    /* CONSISTENT PADDING - same for all items */
+    padding: 14px 0;
+    
+    min-height: 70px; /* Ensures all items are same height */
+    width: 100%;
+    
+    color: var(--text-secondary, #9ca3af);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Icon container - CONSISTENT SIZE */
+.nav-links li a svg,
+.nav-links li [role="link"] svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Hover state */
+.nav-links li a:hover,
+.nav-links li [role="link"]:hover {
+    background: var(--nav-hover, rgba(99, 102, 241, 0.1));
+    color: var(--primary, #6366f1);
+}
+
+/* Active/Selected state - CONSISTENT STYLING */
+.nav-links li.active a,
+.nav-links li.active [role="link"],
+.nav-links li a.active,
+.nav-links li [role="link"].active {
+    background: var(--nav-active-bg, rgba(99, 102, 241, 0.15));
+    color: var(--primary, #6366f1);
+    position: relative;
+}
+
+/* Active indicator bar - LEFT SIDE */
+.nav-links li.active a::before,
+.nav-links li.active [role="link"]::before,
+.nav-links li a.active::before,
+.nav-links li [role="link"].active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 36px;
+    background: var(--primary, #6366f1);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Focus state for keyboard navigation */
+.nav-links li a:focus,
+.nav-links li [role="link"]:focus {
+    outline: 2px solid var(--primary, #6366f1);
+    outline-offset: -2px;
+}
+
+/* Specific icon adjustments if needed */
+.nav-links li a svg.home-icon,
+.nav-links li a svg.courses-icon,
+.nav-links li a svg.skills-icon,
+.nav-links li a svg.projects-icon,
+.nav-links li a svg.community-icon,
+.nav-links li a svg.discussions-icon,
+.nav-links li a svg.awards-icon,
+.nav-links li a svg.profile-icon {
+    /* All icons same size - no special cases */
+    width: 24px;
+    height: 24px;
+}
+
+/* Text labels - CONSISTENT STYLING */
+.nav-links li a span,
+.nav-links li [role="link"] span {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 80px;
+}
+
+/* Remove any default margins/padding that might cause unevenness */
+.nav-links li a *,
+.nav-links li [role="link"] * {
+    margin: 0;
+    padding: 0;
+}
+
+/* Scrollbar styling for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border-color, #2d3142);
+    border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary, #9ca3af);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .sidebar {
+    background: #0f1117;
+    border-right-color: #1f2937;
+}
+
+[data-theme="dark"] .nav-links li a:hover,
+[data-theme="dark"] .nav-links li [role="link"]:hover {
+    background: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="dark"] .nav-links li.active a,
+[data-theme="dark"] .nav-links li.active [role="link"] {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+    
+    .nav-links li a,
+    .nav-links li [role="link"] {
+        padding: 12px 0;
+        min-height: 64px;
+        gap: 4px;
+    }
+    
+    .nav-links li a svg,
+    .nav-links li [role="link"] svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .nav-links li a span,
+    .nav-links li [role="link"] span {
+        font-size: 10px;
+    }
+}
+
+/* ============================================
+   ADDITIONAL UTILITY CLASSES
+   ============================================ */
+
+/* If you have mentor-only links */
+.nav-links li.mentor-only {
+    display: none;
+}
+
+.nav-links li.mentor-only.visible {
+    display: block;
+}
+
+/* Badge/notification indicator */
+.nav-badge {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}

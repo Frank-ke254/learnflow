@@ -1,0 +1,172 @@
+/* ===========================
+   shared.css — Page-specific styles extracted from dash.css
+   Load this on the pages that actually need these components.
+
+   - community.html  → needs: .community-grid-layout, .leaderboard-list,
+                               .review-card.locked, .lock-overlay, .topic
+   - skills.html     → needs: .topic, .locked-input, .locked-status
+   - profile.html    → needs: .form-group, .form-section, .profile-grid,
+                               dark mode input/textarea overrides,
+                               #profilePreview dark mode
+   =========================== */
+
+
+/* ===========================
+   COMMUNITY PAGE
+   community.html
+   =========================== */
+.community-grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.leaderboard-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+/* Locked review cards */
+.review-card.locked {
+    position: relative;
+    filter: grayscale(1);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.lock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+:root.dark .locked-status {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px dashed var(--accent);
+}
+
+
+/* ===========================
+   SKILLS PAGE
+   skills.html
+   =========================== */
+.topic {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 8px;
+    background: var(--bg);
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.locked-input {
+    background: var(--bg);
+    border: 1.5px dashed var(--border);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+#courseSearch:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+
+/* ===========================
+   PROFILE PAGE
+   profile.html — form inputs, avatar preview, grid layout
+   =========================== */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .profile-grid          { grid-template-columns: 1fr; }
+    .community-grid-layout { grid-template-columns: 1fr; }
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Password form button hover */
+#passwordForm .resume-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+
+/* ===========================
+   DARK MODE — PROFILE & FORM INPUTS
+   These are on profile.html, not the dashboard.
+   =========================== */
+:root.dark .readonly-input {
+    background: #1e293b;
+    border-color: var(--border);
+    color: var(--text-sub);
+}
+
+:root.dark input,
+:root.dark textarea {
+    background-color: #1e293b;
+    border-color: var(--border);
+    color: var(--text-main);
+}
+
+:root.dark input:focus,
+:root.dark textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* Profile avatar preview — single declaration (was duplicated in original) */
+:root.dark #profilePreview {
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 15px var(--accent-soft);
+}

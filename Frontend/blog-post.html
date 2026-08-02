@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Post | LearnFlow</title>
+  <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-area" onclick="location.href='/'" style="cursor: pointer;">
+    <img src="Images/LearnFlow.png" alt="LearnFlow logo" width="65">
+    <div class="brand-text">
+      <h1>LearnFlow</h1>
+      <p class="tagline">Build. Validate. Showcase.</p>
+    </div>
+  </div>
+  <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html" class="button">Get Started</a>
+    </nav>
+</header>
+
+<main>
+  <article class="post-container" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+    <section class="post-hero">
+      <h1 id="postTitle">Loading Post...</h1>
+      <p class="post-meta" id="postMeta" style="color: var(--text-sub); margin-bottom: 20px;"></p>
+    </section>
+
+    <section class="post-content">
+      <img id="postImage" src="" alt="Post Header" style="width: 100%; border-radius: 12px; display: none; margin-bottom: 30px;">
+      <div class="content-body" id="postBody" style="line-height: 1.8; font-size: 1.1rem; color: var(--text-main);">
+          </div>
+    </section>
+
+    <section class="comments-section" style="margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px;">
+      <h3>Discussion</h3>
+      
+      <div id="commentsList" style="margin-bottom: 40px;">
+          </div>
+
+      <div class="comment-form-container" style="background: #f9f9f9; padding: 25px; border-radius: 10px;">
+          <h4>Leave a Comment</h4>
+          <form id="commentForm" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+            <input type="text" id="commentName" placeholder="Your Name" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+            <textarea id="commentMessage" placeholder="Write your thoughts..." required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; height: 120px;"></textarea>
+            <button type="submit" class="button" style="width: fit-content; padding: 12px 30px;">Post Comment</button>
+          </form>
+      </div>
+    </section>
+  </article>
+</main>
+
+<script src="JS/config.js"></script>
+<script src="JS/blog-api.js"></script>
+</body>
+</html>

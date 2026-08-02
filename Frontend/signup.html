@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <title>Join LearnFlow | Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/auth-v2.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-visual">
+            <div class="visual-content">
+                <img src="Images/LearnFlow.png" alt="Logo" class="auth-logo">
+                <h1>Your Journey Starts Here.</h1>
+                <p>Join a community of learners dedicated to mastering high-demand digital skills.</p>
+                
+                <div class="auth-features">
+                    <div class="feature-item"><span>✓</span> Earn Industry Certificates</div>
+                    <div class="feature-item"><span>✓</span> Build a Public Portfolio</div>
+                    <div class="feature-item"><span>✓</span> Peer-to-Peer Networking</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-form-section">
+            <div class="form-box">
+                <div class="form-header">
+                    <h2>Create Account</h2>
+                    <p id="stepIndicator">Step 1 of 2: Security Details</p>
+                </div>
+
+                <form id="signupForm">
+                    <div id="step1">
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" id="email" placeholder="name@company.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Username</label>
+                            <input type="text" id="regUsername" placeholder="e.g. dev_jake" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Password</label>
+                            <input type="password" id="regPassword" placeholder="Minimum 8 characters" required>
+                        </div>
+                        <button type="button" class="auth-btn" onclick="nextStep()">Continue</button>
+                    </div>
+
+                    <div id="step2" style="display: none;">
+                        <div class="input-group">
+                            <label>Primary Role</label>
+                            <select id="role" class="auth-select">
+                                <option value="student">Student / Learner</option>
+                                <option value="mentor">Expert / Mentor</option>
+                                <option value="Employer">Hiring Partner</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Main Interest</label>
+                            <select id="interest" class="auth-select">
+                                <option value="Web Dev">Web Development</option>
+                                <option value="Data">Data Science</option>
+                                <option value="Design">UI/UX Design</option>
+                                <option value="Marketing">Machine Learning</option>
+                                <option value="Marketing">Android Development</option>
+                            </select>
+                        </div>
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" class="auth-btn secondary" onclick="prevStep()">Back</button>
+                            <button type="submit" class="auth-btn" id="signupBtn">
+                                <span class="btn-text">Complete Signup</span>
+                                <div class="spinner" id="loader"></div>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="auth-footer">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/config.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/auth.js"></script>
+</body>
+</html>

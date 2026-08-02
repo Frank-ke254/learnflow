@@ -1,0 +1,220 @@
+/* ===========================
+   PROJECT ASSIGNMENT STYLES
+   project-assignment.css
+   =========================== */
+
+/* --- Container --- */
+.assignment-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 100px; /* Accounts for fixed nav */
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* --- Header Area --- */
+.assignment-header {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05));
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.assignment-title {
+    margin-bottom: 1.5rem;
+}
+
+.week-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+}
+
+.assignment-title h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.assignment-meta {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    font-weight: 500;
+}
+
+.meta-item svg {
+    color: var(--accent);
+}
+
+/* --- Content Sections --- */
+.assignment-content {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.content-section {
+    margin-bottom: 2.5rem;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.content-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(99, 102, 241, 0.1);
+}
+
+.markdown-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.requirements-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.requirements-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.requirements-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Guidelines Box */
+.guidelines-box {
+    background: rgba(100, 116, 139, 0.05);
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+}
+
+.guidelines-box ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.guidelines-box li {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.guidelines-box ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Action Buttons */
+.assignment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-hover);
+    border-color: var(--text-main);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

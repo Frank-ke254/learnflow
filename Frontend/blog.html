@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | LearnFlow</title>
+  <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-area" onclick="location.href='/'" style="cursor: pointer;">
+    <img src="Images/LearnFlow.png" alt="LearnFlow logo" width="65">
+    <div class="brand-text">
+      <h1>LearnFlow</h1>
+      <p class="tagline">Build. Validate. Showcase.</p>
+    </div>
+  </div>
+  <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html" class="button">Get Started</a>
+    </nav>
+</header>
+
+<main>
+  <section class="blog-hero">
+    <h2>LearnFlow Blog</h2>
+    <p>Insights, tutorials, and updates to accelerate your tech journey.</p>
+  </section>
+
+  <div class="blog-controls">
+    <input type="text" id="blogSearch" class="blog-search" placeholder="Search articles...">
+    <select id="categoryFilter" class="blog-category-filter">
+      <option value="all">All Categories</option>
+      <option value="Tutorial">Tutorials</option>
+      <option value="Career">Career Advice</option>
+      <option value="Update">Product Updates</option>
+    </select>
+  </div>
+
+  <div class="blog-grid" id="blogContainer">
+      <div class="loading-state" style="text-align: center; grid-column: 1/-1; padding: 40px;">
+          <p>Fetching latest articles...</p>
+      </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <img src="Images/LearnFlow.png" alt="LearnFlow Logo" width="55">
+      <p>Build. Validate. Showcase.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="/">Home</a>
+      <a href="blog.html">Blog</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 LearnFlow — Build. Validate. Showcase.</p>
+  </div>
+</footer>
+
+<script src="JS/config.js"></script>
+<script src="JS/blog-api.js"></script>
+</body>
+</html>

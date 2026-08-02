@@ -1,0 +1,117 @@
+/* ADD THESE STYLES TO YOUR lesson.css */
+
+/* Top Bar with Week Dropdown */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    gap: 1rem;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.breadcrumb a:hover {
+    opacity: 0.8;
+}
+
+.breadcrumb span {
+    color: var(--text-secondary);
+}
+
+/* Week Selector in Top Bar */
+.week-selector-container {
+    flex: 0 0 auto;
+}
+
+.week-dropdown {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.week-dropdown:hover {
+    border-color: var(--accent);
+}
+
+.week-dropdown:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.user-menu {
+    flex: 0 0 auto;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+    
+    .breadcrumb {
+        order: 1;
+        width: 100%;
+    }
+    
+    .week-selector-container {
+        order: 2;
+        flex: 1;
+    }
+    
+    .week-dropdown {
+        width: 100%;
+    }
+    
+    .user-menu {
+        order: 3;
+    }
+}
+
+/* Ensure proper spacing with dropdown */
+.main-content {
+    margin-left: 240px;
+    padding: 0;
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.lesson-container {
+    padding: 2rem;
+}

@@ -1,0 +1,116 @@
+/* EMPTY STATES FOR NEW USERS - Add to dash.css */
+
+/* Empty State Container */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    opacity: 0.3;
+}
+
+.empty-state h3 {
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin: 0 0 1.5rem 0;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.empty-state-action {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.empty-state-action:hover {
+    opacity: 0.9;
+}
+
+/* Upcoming Deadlines - Empty */
+.deadlines-empty {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.deadlines-empty svg {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    opacity: 0.2;
+}
+
+/* Recent Activity - Empty */
+.activity-empty {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.activity-empty-icon {
+    font-size: 4rem;
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+/* Latest Achievements - Empty */
+.achievements-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+.achievements-empty svg {
+    width: 80px;
+    height: 80px;
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+/* Learning Journey - Empty Calendar */
+.journey-empty {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.journey-empty .calendar-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+/* Mentor Feedback - Empty */
+.feedback-empty {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Force hide fake data sections */
+.deadlines-section,
+.streak-calendar {
+    display: none !important;
+}

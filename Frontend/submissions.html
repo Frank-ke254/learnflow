@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Project | LearnFlow</title>
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="CSS/shared.css">
+    <link rel="stylesheet" href="CSS/project-submit.css">
+    <link rel="stylesheet" href="CSS/sidebar-standardized.css">
+</head>
+<body class="main-layout">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="brand" onclick="location.href='dash.html'">
+                <img src="Images/LearnFlow.png" alt="LearnFlow" class="nav-logo">
+                <span class="brand-name">LearnFlow</span>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <svg id="themeIcon" viewBox="0 0 24 24" width="20">
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                </svg>
+            </button>
+            <div class="user-profile" onclick="toggleProfileMenu(event)">
+                <div class="avatar-circle" id="navAvatar">LF</div>
+                
+                <div class="profile-menu" id="profileMenu">
+                    <div class="menu-header">
+                        <p id="navUserName">User</p>
+                    </div>
+                    <button class="menu-item" onclick="goToMyProfile()">My Profile</button>
+                    <button class="menu-item logout-link" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar (same as before) -->
+    <nav class="sidebar">
+        <!-- Sidebar content... -->
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="submission-container">
+            
+            <!-- Header -->
+            <div class="submission-header">
+                <div class="breadcrumb">
+                    <a href="projects.html">Projects</a>
+                    <span>›</span>
+                    <span>Submit New Project</span>
+                </div>
+                <h1>Submit Your Project</h1>
+                <p>Share your work with the community and get feedback from mentors</p>
+            </div>
+
+            <!-- Submission Form -->
+            <form id="projectSubmissionForm" class="submission-form">
+                
+                <!-- Step 1: GitHub Repository -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3>GitHub Repository</h3>
+                            <p>Paste your GitHub repository URL</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="githubUrl">
+                            Repository URL *
+                            <span class="label-hint">Must be a public repository</span>
+                        </label>
+                        <div class="input-with-button">
+                            <input 
+                                type="url" 
+                                id="githubUrl" 
+                                name="github_url"
+                                placeholder="https://github.com/username/repository"
+                                required
+                                onchange="validateGitHubUrl()"
+                            >
+                            <button type="button" class="btn-validate" onclick="fetchRepoPreview()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                                Preview
+                            </button>
+                        </div>
+                        <div class="validation-message" id="urlValidation"></div>
+                    </div>
+
+                    <!-- Repository Preview Card -->
+                    <div id="repoPreview" class="repo-preview" style="display: none;">
+                        <div class="preview-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                            <h4 id="repoName">Repository Name</h4>
+                        </div>
+                        <p id="repoDescription" class="preview-description">Repository description will appear here</p>
+                        <div class="preview-stats">
+                            <span id="repoLanguage" class="stat-badge">JavaScript</span>
+                            <span id="repoStars" class="preview-stat">⭐ 0</span>
+                            <span id="repoUpdated" class="preview-stat">Updated recently</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Project Details -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3>Project Details</h3>
+                            <p>Tell us about your project</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectTitle">
+                            Project Title *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="projectTitle" 
+                            name="title"
+                            placeholder="My Awesome Project"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectCategory">
+                            Category *
+                        </label>
+                        <select id="projectCategory" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="development">Web Development</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="data_science">Data Science</option>
+                            <option value="mobile">Mobile App</option>
+                            <option value="game">Game Development</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectDescription">
+                            Description *
+                            <span class="char-count"><span id="descCharCount">0</span>/500</span>
+                        </label>
+                        <textarea 
+                            id="projectDescription" 
+                            name="description"
+                            rows="5"
+                            maxlength="500"
+                            placeholder="Describe your project, what it does, and what you learned..."
+                            required
+                            oninput="updateCharCount()"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 3: Technologies & Features -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3>Technologies Used</h3>
+                            <p>What did you build this with?</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tech Stack (Select all that apply)</label>
+                        <div class="tech-tags" id="techTags">
+                            <!-- Common technologies -->
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="HTML">
+                                <span>HTML</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="CSS">
+                                <span>CSS</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="JavaScript">
+                                <span>JavaScript</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="React">
+                                <span>React</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="Node.js">
+                                <span>Node.js</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="Python">
+                                <span>Python</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="Django">
+                                <span>Django</span>
+                            </label>
+                            <label class="tech-tag">
+                                <input type="checkbox" name="technologies" value="MongoDB">
+                                <span>MongoDB</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="liveDemo">
+                            Live Demo URL (Optional)
+                        </label>
+                        <input 
+                            type="url" 
+                            id="liveDemo" 
+                            name="live_demo"
+                            placeholder="https://your-project-demo.com"
+                        >
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="history.back()">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        Submit Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="JS/config.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/auth.js" defer></script>
+    <script src="JS/user.js" defer></script>
+    <script src="JS/theme.js"></script>
+    <script src="JS/project-submit.js" defer></script>
+</body>
+</html>

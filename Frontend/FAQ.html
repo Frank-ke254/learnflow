@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - LearnFlow</title>
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/index.css">
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-question.active::after {
+            content: '-';
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background-color: #f0f0f0;
+        }
+        .faq-answer p {
+            padding: 10px 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <div class="logo-area">
+        <img src="Images/LearnFlow.png" alt="LearnFlow logo" width="65" height="65">
+        <div class="brand-text">
+            <h1>LearnFlow</h1>
+            <p class="tagline">Build. Validate. Showcase.</p>
+        </div>
+        </div>
+
+        <nav aria-label="Main navigation">
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="register.html" class="button">Get Started</a>
+        </nav>
+    </header>
+    <h1>Frequently Asked Questions: </h1>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">How do I enroll in a course?</div>
+            <div class="faq-answer">
+                <p>You can enroll by clicking the "Enroll" button on any course page. Make sure you are signed in first.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Can I get a refund?</div>
+            <div class="faq-answer">
+                <p>Yes, you can request a refund within 14 days of enrollment if you haven’t completed more than 20% of the course.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do I get a certificate?</div>
+            <div class="faq-answer">
+                <p>Yes, upon completing a course, you will receive a certificate that you can download from your dashboard.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll('.faq-question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if(answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

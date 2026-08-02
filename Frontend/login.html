@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <title>Login | LearnFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/auth-v2.css">
+    <link rel="stylesheet" href="CSS/login-shared.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-visual">
+            <div class="visual-content">
+                <img src="Images/LearnFlow.png" alt="Logo" class="auth-logo">
+                <h1>Master the Digital Economy.</h1>
+                <p>Join 5,000+ students building verified portfolios and earning through peer-validated skills.</p>
+                
+                <div class="auth-features">
+                    <div class="feature-item"><span>✓</span> Project-Based Learning</div>
+                    <div class="feature-item"><span>✓</span> Peer Review System</div>
+                    <div class="feature-item"><span>✓</span> Industry Certification</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-form-section">
+            <div class="form-box">
+                <div class="form-header">
+                    <h2>Welcome Back</h2>
+                    <p>Enter your credentials to access your dashboard</p>
+                </div>
+
+                <form id="loginForm" autocomplete="off">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" id="username" placeholder="e.g. johndoe" required autocomplete="off">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" placeholder="••••••••" required autocomplete="new-password">
+                            <button type="button" class="toggle-pass" onclick="togglePassword()">👁</button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn" id="loginBtn">
+                        <span class="btn-text">Sign In</span>
+                        <div class="spinner" id="loader"></div>
+                    </button>
+                </form>
+
+                <p class="auth-footer">
+                    Don't have an account? <a href="signup.html">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/config.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/auth.js"></script>
+</body>
+</html>

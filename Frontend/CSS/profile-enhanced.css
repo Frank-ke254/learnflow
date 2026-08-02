@@ -1,0 +1,461 @@
+/* =============================================================
+   profile-enhanced.css — Enhanced Profile Page Styling
+   Add this to your existing profile.css or include separately
+   ============================================================= */
+
+/* ── PROFILE HEADER ──────────────────────────────────────────── */
+
+.profile-header-enhanced {
+    margin-bottom: 32px;
+}
+
+.profile-banner {
+    background: linear-gradient(135deg, var(--accent) 0%, #6366f1 100%);
+    border-radius: 16px;
+    padding: 32px;
+    color: white;
+}
+
+.profile-main-info {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.profile-avatar-large {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.profile-avatar-large img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+}
+
+.profile-status-dot {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: #10b981;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+}
+
+.profile-identity {
+    flex: 1;
+}
+
+.profile-identity h2 {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.profile-username {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.profile-bio {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.profile-badges-mini {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge-mini {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+
+/* ── ACTIVITY TABS ───────────────────────────────────────────── */
+
+.profile-activity-section {
+    margin-bottom: 32px;
+}
+
+.activity-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--border);
+}
+
+.activity-tab {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-sub);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: -2px;
+}
+
+.activity-tab:hover {
+    color: var(--text-main);
+    border-bottom-color: var(--accent);
+}
+
+.activity-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+/* ── PROFILE CARDS ───────────────────────────────────────────── */
+
+.profile-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.profile-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+
+/* ── COURSES LIST ────────────────────────────────────────────── */
+
+.courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.course-item-profile {
+    padding: 12px;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+
+.course-name {
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 8px 0;
+}
+
+.course-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.course-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.course-progress-text {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-top: 4px;
+}
+
+
+/* ── PROGRESS VISUALIZATION ──────────────────────────────────── */
+
+.progress-visualization {
+    min-height: 200px;
+}
+
+.progress-circle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.progress-circle {
+    text-align: center;
+}
+
+.circle-svg {
+    width: 120px;
+    height: 120px;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 8;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.circle-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    fill: var(--text-main);
+}
+
+.circle-label {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+
+/* ── ACHIEVEMENTS GRID ───────────────────────────────────────── */
+
+.achievements-grid-profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.achievement-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.achievement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.achievement-card.locked {
+    opacity: 0.5;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    filter: grayscale(100%);
+}
+
+.achievement-card:not(.locked) .achievement-icon {
+    filter: none;
+}
+
+.achievement-name {
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 4px 0;
+    font-size: 0.9rem;
+}
+
+.achievement-date {
+    font-size: 0.75rem;
+    color: var(--text-sub);
+    margin: 0;
+}
+
+
+/* ── ACTIVITY TIMELINE ───────────────────────────────────────── */
+
+.activity-timeline-profile {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.activity-item-profile {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.activity-item-profile:last-child {
+    border-bottom: none;
+}
+
+.activity-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.activity-content-profile {
+    flex: 1;
+}
+
+.activity-title-profile {
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 4px 0;
+}
+
+.activity-detail-profile {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    margin: 0 0 4px 0;
+}
+
+.activity-time-profile {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+
+/* ── PROFILE DIVIDER ─────────────────────────────────────────── */
+
+.profile-divider {
+    margin: 48px 0 32px 0;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+}
+
+.profile-divider h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+.profile-divider p {
+    margin: 0;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+}
+
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .profile-two-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-stats-bar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-main-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-identity h2 {
+        font-size: 1.5rem;
+    }
+    
+    .profile-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .achievements-grid-profile {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
+
+
+/* ── DARK MODE ───────────────────────────────────────────────── */
+
+.dark .profile-card,
+.dark .activity-timeline-profile {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .achievement-card {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .achievement-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .course-item-profile {
+    background: rgba(255, 255, 255, 0.05);
+}

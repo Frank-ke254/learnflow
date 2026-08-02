@@ -1,0 +1,477 @@
+/* ===========================
+   DESIGN SYSTEM & VARIABLES
+   =========================== */
+/*
+   These tokens are the single source of truth for all pages.
+   Both dash.css and profile.css (and any future page CSS) should
+   read from these. Dark mode just re-declares the same token names.
+*/
+:root {
+    /* Light Mode Palette */
+    --bg:           #f8fafc;
+    --card:         #ffffff;
+    --text-main:    #0f172a;
+    --text-sub:     #64748b;
+    --accent:       #4f46e5;
+    --accent-soft:  rgba(79, 70, 229, 0.1);
+    --border:       #e2e8f0;
+    --shadow:       0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    /* Danger colour — used for logout, errors, destructive actions */
+    --danger:       #ef4444;
+    --danger-soft:  rgba(239, 68, 68, 0.1);
+
+    /* Layout Dimensions */
+    --nav-height:      70px;
+    --sidebar-width:   100px;
+    --radius-lg:       16px;
+    --radius-md:       10px;
+}
+
+/* Dark Mode Overrides */
+:root.dark {
+    --bg:           #0b0e14;
+    --card:         #151921;
+    --text-main:    #f1f5f9;
+    --text-sub:     #94a3b8;
+    --accent:       #818cf8;
+    --accent-soft:  rgba(129, 140, 248, 0.15);
+    --border:       #262c36;
+    --shadow:       0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ===========================
+   BASE RESET
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+
+/* ===========================
+   GLOBAL TOP NAVIGATION
+   Shared with all pages that include the top nav.
+   =========================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+/* Brand is now an <a> tag — remove default link styling */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-logo { height: 36px; }
+
+.brand-name {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    color: var(--accent);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.theme-toggle {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 8px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle svg { fill: var(--text-sub); transition: fill 0.3s; }
+.theme-toggle:hover svg { fill: var(--accent); }
+
+/* User Profile & Dropdown */
+.user-profile { position: relative; }
+
+/* Avatar is now a <button> — reset browser button defaults */
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: opacity 0.2s;
+}
+
+.avatar-circle:hover { opacity: 0.9; }
+.avatar-circle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.profile-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    width: 180px;
+    padding: 10px;
+    display: none;
+    box-shadow: var(--shadow);
+    z-index: 1001;
+}
+
+/* Dropdown is now JS-controlled only — removed :hover trigger
+   to prevent conflict between CSS hover and JS toggle */
+
+.menu-header {
+    padding: 4px 8px;
+    margin-bottom: 4px;
+}
+
+/* Class names match the new HTML (no more inline style="") */
+.menu-username {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.menu-account-label {
+    color: var(--text-sub);
+    font-size: 0.75rem;
+    padding: 0 8px;
+    display: block;
+}
+
+.menu-divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 8px 0;
+}
+
+.menu-item {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px 8px;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-main);
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.menu-item:hover { background: var(--bg); }
+.menu-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.logout-link { color: var(--danger); }
+.logout-link:hover { background: var(--danger-soft); }
+
+
+/* ===========================
+   SIDEBAR (Icon + Text)
+   Shared with all pages that include the sidebar nav.
+   =========================== */
+.sidebar {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links li {
+    width: 80%;
+    padding: 12px 0;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    /* Keyboard focus support */
+    outline: none;
+}
+
+.nav-links li:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.nav-links li svg { width: 24px; fill: var(--text-sub); transition: fill 0.2s; }
+
+.nav-links li span {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: var(--text-sub);
+    transition: color 0.2s;
+}
+
+.nav-links li:hover                    { background: var(--bg); }
+.nav-links li.active                   { background: var(--accent-soft); }
+.nav-links li.active svg               { fill: var(--accent); }
+.nav-links li.active span              { color: var(--accent); }
+
+
+/* ===========================
+   MAIN CONTENT AREA
+   Dashboard-specific layout.
+   =========================== */
+.content-wrapper {
+    margin-top: var(--nav-height);
+    margin-left: var(--sidebar-width);
+    padding: 40px;
+    max-width: 1400px;
+}
+
+/* Welcome Section */
+.welcome-area { margin-bottom: 32px; }
+.welcome-area h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; }
+.welcome-area p  { color: var(--text-sub); }
+
+/* Continue Learning Card */
+.learning-status-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+}
+
+.learning-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.week-badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.learning-header h2 { font-size: 1.5rem; font-weight: 700; }
+.course-context     { font-size: 0.9rem; color: var(--text-sub); }
+
+.resume-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.resume-btn:hover           { opacity: 0.9; }
+.resume-btn:focus-visible   { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Progress Bar */
+.progress-container { margin-top: 20px; }
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.progress-bar-bg {
+    height: 10px;
+    background: var(--bg);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 5px;
+    /* Smooth animation when JS updates the width */
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Statistics Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-card .icon {
+    background: var(--bg);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.stat-info p {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.stat-info h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+/* ===========================
+   TOAST NOTIFICATIONS
+   Injected by utils.js showToast() — shared across all pages.
+   =========================== */
+#toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.88rem;
+    font-weight: 500;
+    max-width: 320px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: auto;
+}
+
+.toast.toast-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.toast-error   { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.toast-warning { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+.toast-icon    { font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+
+:root.dark .toast-success { background: #052e16; color: #86efac; border-color: #166534; }
+:root.dark .toast-error   { background: #450a0a; color: #fca5a5; border-color: #991b1b; }
+:root.dark .toast-warning { background: #422006; color: #fcd34d; border-color: #92400e; }
+
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+    .sidebar                       { width: 70px; }
+    .sidebar .nav-links li span    { display: none; }
+    .content-wrapper               { margin-left: 70px; padding: 20px; }
+    .learning-header               { flex-direction: column; gap: 16px; }
+    .resume-btn                    { width: 100%; }
+    #toast-container               { bottom: 16px; right: 16px; left: 16px; }
+    .toast                         { max-width: 100%; }
+}
+
+
+/* ===========================
+   DARK MODE POLISH
+   Page-specific dark mode overrides.
+   =========================== */
+
+/* Spinner shown in avatar while user data loads */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | LearnFlow</title>
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="CSS/shared.css">
+    <link rel="stylesheet" href="CSS/portfolio.css">
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="brand" onclick="location.href='index.html'" style="cursor: pointer;">
+                <img src="Images/LearnFlow.png" alt="LearnFlow" class="nav-logo">
+                <span class="brand-name">LearnFlow</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="resume-btn" onclick="location.href='index.html'">Back to Home</button>
+        </div>
+    </header>
+
+    <main class="portfolio-wrap">
+        <section class="portfolio-hero learning-status-card">
+            <img id="portfolioAvatar" class="portfolio-avatar" src="https://ui-avatars.com/api/?name=User&background=4f46e5&color=fff" alt="Portfolio avatar">
+            <div>
+                <h1 id="portfolioName">Loading portfolio...</h1>
+                <p id="portfolioRole">@user</p>
+                <p id="portfolioBio">Public portfolio from LearnFlow.</p>
+            </div>
+        </section>
+
+        <section class="stats-grid" id="portfolioStats"></section>
+
+        <section class="learning-status-card">
+            <h2>Verified Projects</h2>
+            <div id="projectsList"></div>
+        </section>
+
+        <section class="learning-status-card">
+            <h2>Skills & Badges</h2>
+            <div id="badgesList" class="badges-list"></div>
+        </section>
+    </main>
+
+    <script src="JS/config.js"></script>
+    <script src="JS/portfolio.js"></script>
+</body>
+</html>

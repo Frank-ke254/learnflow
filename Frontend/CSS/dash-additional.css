@@ -1,0 +1,541 @@
+/* =============================================================
+   dashboard-additions.css — Additional Dashboard Widgets (FIXED)
+   Add this to your existing dash.css or include separately
+   ============================================================= */
+
+/* ── HIDE SECTIONS UNTIL LOADED ──────────────────────────────── */
+
+.activity-feed-section,
+.quick-actions-panel,
+.deadlines-section,
+.badges-showcase,
+.mentor-feedback-section,
+.streak-calendar {
+    display: none; /* Hidden by default, shown by JS after loading */
+}
+
+.activity-feed-section.loaded,
+.quick-actions-panel.loaded,
+.deadlines-section.loaded,
+.badges-showcase.loaded,
+.mentor-feedback-section.loaded,
+.streak-calendar.loaded {
+    display: block;
+}
+
+
+/* ── SECTION HEADERS ─────────────────────────────────────────── */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+.view-all-link {
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.view-all-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+
+/* ── RECENT ACTIVITY FEED ────────────────────────────────────── */
+
+.activity-feed-section {
+    margin: 32px 0;
+}
+
+.activity-timeline {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 350px; /* Fixed height */
+    overflow-y: auto;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.activity-item:hover {
+    background: var(--border);
+    border-left-color: var(--accent);
+}
+
+.activity-item:last-child {
+    margin-bottom: 0;
+}
+
+.activity-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(79, 70, 229, 0.1);
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-title {
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 4px 0;
+    font-size: 0.95rem;
+}
+
+.activity-detail {
+    color: var(--text-sub);
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    white-space: nowrap;
+}
+
+
+/* ── QUICK ACTIONS PANEL ─────────────────────────────────────── */
+
+.quick-actions-panel {
+    margin: 32px 0;
+}
+
+.quick-actions-panel h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.action-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 16px; /* Fixed padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-height: 120px; /* Fixed min height */
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.action-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-card span {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+
+/* ── UPCOMING DEADLINES ──────────────────────────────────────── */
+
+.deadlines-section {
+    margin: 32px 0;
+}
+
+.deadlines-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+.deadlines-list {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px; /* Reduced padding */
+    min-height: 100px; /* Minimum height */
+}
+
+.deadline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    border-left: 3px solid;
+}
+
+.deadline-item:last-child {
+    margin-bottom: 0;
+}
+
+.deadline-item.urgent {
+    border-left-color: #ef4444;
+}
+
+.deadline-item.soon {
+    border-left-color: #f59e0b;
+}
+
+.deadline-item.normal {
+    border-left-color: #10b981;
+}
+
+.deadline-title {
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 4px 0;
+    font-size: 0.95rem;
+}
+
+.deadline-course {
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.deadline-time {
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.deadline-time.urgent {
+    color: #ef4444;
+}
+
+.deadline-time.soon {
+    color: #f59e0b;
+}
+
+.deadline-time.normal {
+    color: #10b981;
+}
+
+
+/* ── BADGES SHOWCASE ─────────────────────────────────────────── */
+
+.badges-showcase {
+    margin: 32px 0;
+}
+
+.badges-carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    scrollbar-width: thin;
+    min-height: 140px; /* Fixed height */
+}
+
+.badges-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.badges-carousel::-webkit-scrollbar-track {
+    background: var(--hover-bg);
+    border-radius: 3px;
+}
+
+.badges-carousel::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+.badge-card {
+    min-width: 100px; /* Smaller width */
+    max-width: 100px;
+    text-align: center;
+    padding: 12px;
+    background: var(--hover-bg);
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.badge-card:hover {
+    transform: scale(1.05);
+}
+
+.badge-emoji {
+    font-size: 2.5rem; /* Smaller emoji */
+    margin-bottom: 8px;
+}
+
+.badge-name {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.badge-date {
+    color: var(--text-sub);
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+
+/* ── MENTOR FEEDBACK CARD ────────────────────────────────────── */
+
+.mentor-feedback-section {
+    margin: 32px 0;
+}
+
+.mentor-feedback-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+.feedback-card-new {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0.02) 100%);
+    border: 1px solid rgba(79, 70, 229, 0.2);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 20px; /* Fixed padding */
+    min-height: 100px; /* Minimum height */
+}
+
+.feedback-project-name {
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+}
+
+.feedback-text {
+    color: var(--text-main);
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+}
+
+.feedback-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+.feedback-mentor-name {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+
+/* ── STREAK CALENDAR ─────────────────────────────────────────── */
+
+.streak-calendar {
+    margin: 32px 0;
+}
+
+.streak-calendar h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.3rem;
+    color: var(--text-main);
+}
+
+.streak-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.streak-stat {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    min-height: 100px; /* Fixed height */
+}
+
+.streak-number {
+    display: block;
+    font-size: 2rem; /* Smaller number */
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+
+.streak-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.calendar-header {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-sub);
+    text-transform: uppercase;
+    padding: 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    background: var(--hover-bg);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem; /* Larger font for day numbers */
+    font-weight: 600;
+    color: var(--text-sub);
+    transition: all 0.2s;
+    min-height: 36px; /* Ensure boxes are big enough for numbers */
+}
+
+.calendar-day.empty {
+    background: transparent;
+    cursor: default;
+}
+
+.calendar-day.active {
+    background: var(--accent);
+    color: white; /* White text on active days */
+    font-weight: 700;
+}
+
+.calendar-day.today {
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.calendar-day:not(.empty):hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .streak-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-grid {
+        gap: 4px;
+        padding: 12px;
+    }
+}
+
+
+/* ── DARK MODE ───────────────────────────────────────────────── */
+
+.dark .activity-timeline,
+.dark .deadlines-list,
+.dark .badges-carousel,
+.dark .action-card,
+.dark .streak-stat {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .activity-item,
+.dark .deadline-item,
+.dark .badge-card,
+.dark .calendar-day {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .activity-item:hover,
+.dark .action-card:hover,
+.dark .badge-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark mode calendar - make active days BRIGHT */
+.dark .calendar-day.active {
+    background: #6366f1; /* Bright indigo/purple */
+    color: white;
+}
+
+.dark .calendar-day.today {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+.dark .calendar-header {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .calendar-day {
+    color: rgba(255, 255, 255, 0.4); /* Dim inactive days */
+}
+
+.dark .calendar-day.active {
+    color: white; /* Bright text on active days */
+}

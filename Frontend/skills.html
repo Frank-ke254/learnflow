@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Topics | LearnFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="CSS/shared.css">
+    <link rel="stylesheet" href="CSS/profile.css">
+    <link rel="stylesheet" href="CSS/sidebar-standardized.css">
+    <link rel="stylesheet" href="CSS/skills.css">
+</head>
+<body class="main-layout">
+
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="brand" onclick="location.href='dash.html'">
+                <img src="Images/LearnFlow.png" alt="LearnFlow" class="nav-logo">
+                <span class="brand-name">LearnFlow</span>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Topic Navigator Dropdown -->
+            <div class="topic-navigator" id="topicNavigator">
+                <button class="nav-dropdown-btn" onclick="toggleTopicMenu()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span id="currentTopic">Topics</span>
+                    <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </button>
+                
+                <div class="topic-dropdown-menu" id="topicMenu">
+                    <div class="menu-header">
+                        <h4>Quick Navigation</h4>
+                        <p>Jump to any topic you've covered</p>
+                    </div>
+                    
+                    <div class="topics-list" id="topicsList">
+                        <!-- Topics will be loaded dynamically -->
+                        <div class="topic-loading">Loading topics...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <svg id="themeIcon" viewBox="0 0 24 24" width="20">
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                </svg>
+            </button>
+            
+            <div class="user-profile" onclick="toggleProfileMenu(event)">
+                <div class="avatar-circle" id="navAvatar">LF</div>
+                
+                <div class="profile-menu" id="profileMenu">
+                    <div class="menu-header">
+                        <p id="navUserName">User</p>
+                        <small>Account Settings</small>
+                    </div>
+                    <hr>
+                    <button class="menu-item" onclick="goToMyProfile()">My Profile</button>
+                    <button class="menu-item logout-link" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <ul class="nav-links">
+            <li onclick="location.href='dash.html'">
+                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                <span>Home</span>
+            </li>
+            <li onclick="location.href='courses.html'">
+                <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <span>Courses</span>
+            </li>
+            <li class="active" onclick="location.href='skills.html'">
+                <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                <span>Skills</span>
+            </li>
+            <li onclick="location.href='projects.html'">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2z"/></svg>
+                <span>Projects</span>
+            </li>
+            <li onclick="location.href='community.html'">
+                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                <span>Community</span>
+            </li>
+            <li onclick="location.href='discussions.html'">
+                <svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                <span>Discussions</span>
+            </li>
+            <li onclick="location.href='achievements.html'">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                <span>Awards</span>
+            </li>
+            <li onclick="goToMyProfile()">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="skills-container">
+            
+            <!-- Page Header -->
+            <div class="page-header">
+                <div>
+                    <h1>Skills & Learning Topics</h1>
+                    <p>Track your progress through each week's content and topics</p>
+                </div>
+            </div>
+
+            <!-- Current Week Highlight -->
+            <div class="current-week-banner" id="currentWeekBanner">
+                <div class="banner-content">
+                    <div class="week-badge">CURRENT</div>
+                    <div class="week-info">
+                        <h3 id="currentWeekTitle">Week 1: HTML & CSS Fundamentals</h3>
+                        <p id="currentWeekDesc">Master the basics of web development</p>
+                    </div>
+                </div>
+                <div class="week-progress-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                        <circle id="weekProgressArc" cx="50" cy="50" r="45" fill="none" stroke="#6366f1" stroke-width="8" 
+                                stroke-dasharray="283" stroke-dashoffset="283" transform="rotate(-90 50 50)" stroke-linecap="round"/>
+                    </svg>
+                    <span class="progress-text" id="weekProgressText">0%</span>
+                </div>
+            </div>
+
+            <!-- Weeks Grid -->
+            <div class="weeks-grid" id="weeksGrid">
+                <!-- Weeks will be loaded dynamically -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Topic Detail Modal -->
+    <div class="modal" id="topicModal" style="display: none;">
+        <div class="modal-backdrop" onclick="closeTopicModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTopicTitle">Topic Title</h2>
+                <button class="modal-close" onclick="closeTopicModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalTopicContent">
+                <!-- Topic content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeTopicModal()">Close</button>
+                <button class="btn btn-primary" onclick="markTopicComplete()">Mark as Complete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="JS/config.js" defer></script>
+    <script src="JS/utils.js" defer></script>
+    <script src="JS/auth.js" defer></script>
+    <script src="JS/user.js" defer></script>
+    <script src="JS/theme.js"></script>
+    <script src="JS/skills.js" defer></script>
+    <script src="JS/profile.js"></script>
+</body>
+</html>

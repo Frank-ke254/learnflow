@@ -1,0 +1,45 @@
+/* INTEGRITY LOCK STYLES */
+.learning-status-card.locked {
+    position: relative;
+    overflow: hidden;
+}
+
+.learning-status-card.locked .card-content {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.5;
+}
+
+.lock-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--bg), 0.4);
+}
+
+.lock-box {
+    background: var(--card);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    max-width: 80%;
+}
+
+.lock-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.lock-box p {
+    font-size: 14px;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}

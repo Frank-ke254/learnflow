@@ -1,0 +1,607 @@
+/* ===========================
+   SKILLS PAGE STYLES (Premium Aesthetic)
+   skills.css
+   =========================== */
+
+/* --- Container & Typography --- */
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 100px; /* Accounts for fixed top navigation */
+    animation: fadeIn 0.4s ease-out;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: var(--text-sub);
+    font-size: 1.1rem;
+}
+
+/* --- Current Week Banner (Glassmorphism + Gradients) --- */
+.current-week-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.current-week-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+}
+
+.banner-content {
+    flex: 1;
+}
+
+.week-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.week-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.week-info p {
+    font-size: 1.1rem;
+    color: var(--text-sub);
+}
+
+/* Fix for large SVG */
+.week-progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.week-progress-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.week-progress-circle svg circle:first-child {
+    stroke: var(--border);
+}
+
+.week-progress-circle svg circle#weekProgressArc {
+    stroke: var(--accent);
+    transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-text {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+/* --- Weeks Grid --- */
+.weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.week-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.week-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-light, #a5b4fc);
+}
+
+.week-card.current {
+    border: 2px solid var(--accent);
+}
+
+.week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.week-number {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-sub);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.locked-badge, .current-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.locked-badge {
+    background: rgba(100, 116, 139, 0.1);
+    color: var(--text-sub);
+}
+
+.current-badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--accent);
+}
+
+.week-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.week-desc {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+/* Progress Bar */
+.week-progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #a855f7);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.progress-label {
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+/* Topics List */
+.topics-list {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.topic-chip {
+    padding: 0.6rem 1rem;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-main);
+}
+
+:root.dark .topic-chip {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.topic-chip:hover {
+    background: rgba(99, 102, 241, 0.05);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.topic-chip.completed {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #15803d;
+}
+
+:root.dark .topic-chip.completed {
+    color: #4ade80;
+}
+
+.no-topics {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    font-style: italic;
+}
+
+/* Footer Buttons */
+.week-footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.week-footer button {
+    flex: 1;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.btn-quiz {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-quiz:hover:not(:disabled) {
+    background: var(--accent-hover);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-quiz.completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803d;
+    box-shadow: none;
+}
+
+:root.dark .btn-quiz.completed {
+    color: #4ade80;
+}
+
+.btn-project {
+    background: transparent;
+    border: 1px solid var(--border) !important;
+    color: var(--text-main);
+}
+
+.btn-project:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--text-main) !important;
+}
+
+.week-footer button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--border);
+    color: var(--text-sub);
+}
+
+/* --- Modal Styles --- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--bg);
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid var(--border);
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: var(--text-sub);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.topic-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--accent);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.topic-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    background: var(--bg-sub);
+    border-radius: 0 0 20px 20px;
+}
+
+.btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-hover);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .current-week-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .weeks-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Topic Navigator Dropdown --- */
+.topic-navigator {
+    position: relative;
+}
+
+.nav-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.nav-dropdown-btn:hover {
+    border-color: var(--accent);
+}
+
+.topic-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    width: 320px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+    overflow: hidden;
+    animation: scaleUp 0.2s ease;
+}
+
+.topic-dropdown-menu.show {
+    display: flex;
+}
+
+.topic-dropdown-menu .menu-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.topic-dropdown-menu .menu-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.topic-dropdown-menu .menu-header p {
+    margin: 4px 0 0;
+    font-size: 0.8rem;
+    color: var(--text-sub);
+}
+
+.week-group {
+    margin-bottom: 16px;
+}
+
+.week-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+}
+
+.week-group-header strong {
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.week-group-header small {
+    color: var(--text-sub);
+    font-size: 0.75rem;
+}
+
+.topic-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.topic-item:hover {
+    background: var(--bg-hover);
+}
+
+.topic-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    font-size: 0.8rem;
+}
+
+.topic-item.completed .topic-icon {
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803d;
+}
+
+.topic-name {
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.completed-badge {
+    color: #15803d;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+:root.dark .completed-badge, :root.dark .topic-item.completed .topic-icon {
+    color: #4ade80;
+}
+
+.topics-list::-webkit-scrollbar {
+    width: 6px;
+}
+.topics-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}

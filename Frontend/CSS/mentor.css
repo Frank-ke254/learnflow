@@ -1,0 +1,234 @@
+/* =============================================================
+   mentor.css — Mentor review page styling
+   Used by: mentor-review.html, review-history.html
+   ============================================================= */
+
+/* ── MENTOR GRID LAYOUT ─────────────────────────────────────── */
+
+.mentor-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+    .mentor-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ── SUBMISSION QUEUE ───────────────────────────────────────── */
+
+.queue-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.queue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s ease;
+}
+
+.queue-item:hover {
+    background: var(--hover-bg);
+}
+
+.queue-item:last-child {
+    border-bottom: none;
+}
+
+.queue-info strong {
+    display: block;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.queue-btn {
+    padding: 8px 20px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.queue-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.queue-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ── REVIEW PANEL ───────────────────────────────────────────── */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-sub);
+}
+
+
+/* ── WEEK BADGE (reused from community) ──────────────────────── */
+
+.week-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--accent);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* ── REVIEW HISTORY ──────────────────────────────────────────── */
+
+.history-item {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.history-header h3 {
+    font-size: 1.1rem;
+    margin: 0 0 6px 0;
+    color: var(--text-main);
+}
+
+.history-meta {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin: 0;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-approved {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-revision {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.history-feedback {
+    background: var(--hover-bg);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.history-feedback strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.history-feedback p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    line-height: 1.5;
+}
+
+.history-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.text-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.text-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+
+/* ── RESPONSIVE ADJUSTMENTS ──────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .queue-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .queue-btn {
+        width: 100%;
+    }
+
+    .history-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .status-badge {
+        align-self: flex-start;
+    }
+}
+
+
+/* ── DARK MODE SUPPORT ───────────────────────────────────────── */
+
+.dark .queue-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .history-feedback {
+    background: rgba(255, 255, 255, 0.05);
+}

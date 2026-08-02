@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings | LearnFlow</title>
+    <link rel="shortcut icon" href="Images/LearnFlow.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/dash.css">
+    <link rel="stylesheet" href="CSS/profile.css">
+    <link rel="stylesheet" href="CSS/sidebar-standardized.css">
+</head>
+<body class="main-layout">
+
+    <header class="top-nav">
+        <div class="nav-left">
+            <div class="brand" onclick="location.href='mentor-review.html'">
+                <img src="Images/LearnFlow.png" alt="LearnFlow" class="nav-logo">
+                <span class="brand-name">LearnFlow</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <svg viewBox="0 0 24 24" width="20"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/></svg>
+            </button>
+            
+            <div class="user-profile" onclick="toggleProfileMenu(event)">
+                <div class="avatar-circle" id="navAvatar">LF</div>
+                
+                <div class="profile-menu" id="profileMenu">
+                    <div class="menu-header">
+                        <p id="navUserName" style="margin:0; color: var(--text-main);">User</p>
+                        <small style="color: var(--text-sub); font-size: 0.75rem;">Account Settings</small>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 8px 0;">
+                    
+                    <button class="menu-item" onclick="location.href='mentor-profile.html'">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        My Profile
+                    </button>
+                    
+                    <button class="menu-item logout-link" onclick="handleLogout()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="margin-right:8px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <ul class="nav-links">
+            <li onclick="location.href='mentor-review.html'">
+                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                <span>Home</span>
+            </li>
+            
+            <li onclick="location.href='discussions.html'">
+                <svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                <span>Discussions</span>
+            </li>
+
+            <li onclick="location.href='review-history.html'">
+                <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                <span>Reviews</span>
+            </li>
+            
+            <li class="active" onclick="location.href='mentor-profile.html'">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <span>Profile</span>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content-wrapper">
+        <section class="welcome-area">
+            <h1>Account Settings</h1>
+            <p>Manage your public identity and security preferences.</p>
+        </section>
+
+        <div class="learning-status-card">
+            <form id="profileForm">
+                <div class="avatar-upload-section">
+                    <div class="avatar-preview-container">
+                        <img src="https://ui-avatars.com/api/?name=User&background=4f46e5&color=fff" id="profilePreview" alt="Profile Preview">
+                        <label for="avatarInput" class="edit-badge">+</label>
+                        <input type="file" id="avatarInput" accept="image/*" hidden>
+                    </div>
+                    <div class="avatar-info">
+                        <h3>Profile Image</h3>
+                        <p>Allowed formats: JPG, PNG. Max 2MB.</p>
+                    </div>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="form-section">
+                        <h3 style="margin-bottom: 20px;">Identity</h3>
+                        <div class="form-group">
+                            <label>Current Role</label>
+                            <div class="locked-status" id="displayRole">MENTOR</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" id="profUsername" readonly class="readonly-input">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Personal Details</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="profFullName" placeholder="e.g. John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="profEmail">
+                        </div>
+                        <div class="form-group">
+                            <label>Biography</label>
+                            <textarea id="profBio" rows="3" placeholder="Tell us about your mentoring experience..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                    <button type="submit" class="resume-btn" id="saveProfileBtn">Update Profile</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="learning-status-card" style="border-top: 4px solid #ef4444;">
+            <h3 style="margin-bottom: 10px;">Security & Password</h3>
+            <p style="color: var(--text-sub); margin-bottom: 25px; font-size: 0.9rem;">Change your password to keep your account secure.</p>
+            
+            <form id="passwordForm">
+                <div class="profile-grid">
+                    <div class="form-group">
+                        <label for="old_password">Current Password</label>
+                        <input type="password" id="old_password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="new_password" placeholder="••••••••">
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" id="confirm_password" placeholder="••••••••">
+                    </div>
+                </div>
+                <div class="form-actions" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                    <button type="submit" class="resume-btn" style="background: var(--text-main);">Update Password</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="JS/theme.js"></script>
+    <script src="JS/config.js"></script>
+    <script src="JS/utils.js"></script>
+    <script src="JS/auth.js"></script>
+    <script src="JS/user.js"></script>
+    <script src="JS/profile.js"></script>
+</body>
+</html>
